@@ -1,0 +1,1731 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AL FAHNA STORE — Solusi Kebutuhan Kang Santri</title>
+    <meta name="description" content="Temukan berbagai kebutuhan kang santri mulai dari kitab, pakaian, perlengkapan muslim, minyak wangi, alat tulis, dan kebutuhan lainnya di Al Fahna Store.">
+    <meta name="keywords" content="Al Fahna Store, kebutuhan santri, kitab assafany, produk hni, pulpen kenko, perlengkapan muslim, alat tulis santri">
+    <meta name="author" content="AN Zein Fuad M">
+
+    <!-- Google Fonts: Plus Jakarta Sans & Cinzel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN untuk Layout Responsif & Utility -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#0B1F45',
+                            deep: '#07152F',
+                            white: '#FFFFFF',
+                            gray: '#F4F6F9',
+                            gold: '#C6A46A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cinzel"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (Dapat disalin langsung menjadi file style.css) -->
+    <style id="store-stylesheet">
+        :root {
+            --navy-blue: #0B1F45;
+            --deep-navy: #07152F;
+            --pure-white: #FFFFFF;
+            --light-gray: #F4F6F9;
+            --gold: #C6A46A;
+            --text-main: #0B1F45;
+            --text-muted: #475569;
+            --border-color: rgba(11, 31, 69, 0.1);
+            --shadow-soft: 0 10px 28px -6px rgba(7, 21, 47, 0.06);
+            --shadow-hover: 0 20px 38px -12px rgba(7, 21, 47, 0.14);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--pure-white);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* Ornamen Geometris Islami Tipis */
+        .islamic-pattern-light {
+            background-color: var(--pure-white);
+            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%230B1F45' stroke-width='0.75' stroke-opacity='0.045'%3E%3Cpath d='M40 0L49.5 14.5L66 14L65.5 30.5L80 40L65.5 49.5L66 66L49.5 65.5L40 80L30.5 65.5L14 66L14.5 49.5L0 40L14.5 30.5L14 14L30.5 14.5Z'/%3E%3Ccircle cx='40' cy='40' r='14'/%3E%3Cpath d='M40 12L46 34L68 40L46 46L40 68L34 46L12 40L34 34Z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .islamic-pattern-navy {
+            background-color: var(--deep-navy);
+            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C6A46A' stroke-width='0.75' stroke-opacity='0.08'%3E%3Cpath d='M40 0L49.5 14.5L66 14L65.5 30.5L80 40L65.5 49.5L66 66L49.5 65.5L40 80L30.5 65.5L14 66L14.5 49.5L0 40L14.5 30.5L14 14L30.5 14.5Z'/%3E%3Ccircle cx='40' cy='40' r='14'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Sticky Navbar */
+        .navbar-sticky {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent;
+            transition: all 0.25s ease;
+        }
+
+        .navbar-sticky.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom-color: var(--border-color);
+            box-shadow: 0 8px 24px rgba(7, 21, 47, 0.08);
+            padding-top: 0.65rem;
+            padding-bottom: 0.65rem;
+        }
+
+        /* Siluet Lengkungan Kubah Islami */
+        .islamic-arch-card {
+            border-radius: 175px 175px 24px 24px;
+            border: 1.5px solid rgba(198, 164, 106, 0.5);
+            box-shadow: var(--shadow-soft);
+            position: relative;
+        }
+
+        .islamic-arch-card::before {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border-radius: 166px 166px 18px 18px;
+            border: 1px solid rgba(11, 31, 69, 0.08);
+            pointer-events: none;
+        }
+
+        /* Tombol */
+        .btn-navy {
+            background-color: var(--navy-blue);
+            color: var(--pure-white);
+            border: 1px solid var(--navy-blue);
+            transition: all 0.25s ease;
+        }
+
+        .btn-navy:hover {
+            background-color: var(--deep-navy);
+            border-color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px -6px rgba(11, 31, 69, 0.35);
+        }
+
+        .btn-gold-outline {
+            background-color: var(--pure-white);
+            color: var(--navy-blue);
+            border: 1.5px solid var(--gold);
+            transition: all 0.25s ease;
+        }
+
+        .btn-gold-outline:hover {
+            background-color: #FBF8F1;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px -6px rgba(198, 164, 106, 0.28);
+        }
+
+        /* Card Produk & Kategori */
+        .ecom-card {
+            background: var(--pure-white);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .ecom-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--gold);
+        }
+
+        /* Frame Gambar Produk (Wajib object-fit: contain di atas background bersih konsisten) */
+        .product-image-frame {
+            background-color: #F8FAFC;
+            aspect-ratio: 4 / 3;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem;
+            border-bottom: 1px solid rgba(11, 31, 69, 0.06);
+            overflow: hidden;
+        }
+
+        .product-image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .ecom-card:hover .product-image-frame img {
+            transform: scale(1.04);
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Toast Notification */
+        #toast-stack {
+            position: fixed;
+            bottom: 5.25rem;
+            right: 1.25rem;
+            z-index: 70;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            pointer-events: none;
+        }
+
+        .toast-bubble {
+            background: var(--deep-navy);
+            color: var(--pure-white);
+            border-left: 4px solid var(--gold);
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 12px 28px rgba(7, 21, 47, 0.28);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            animation: toastSlideIn 0.28s ease forwards;
+        }
+
+        @keyframes toastSlideIn {
+            from { opacity: 0; transform: translateX(22px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+    </style>
+</head>
+<body class="islamic-pattern-light antialiased selection:bg-[#0B1F45] selection:text-white">
+
+    <!-- ==================== 1. NAVBAR STICKY & RESPONSIVE ==================== -->
+    <header id="site-header" class="navbar-sticky fixed top-0 inset-x-0 z-50 py-3.5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+            
+            <!-- Brand Logo (Terinspirasi Logo Al Fahna Store) -->
+            <a href="#beranda" class="flex items-center gap-3 group focus:outline-none">
+                <div class="w-11 h-11 rounded-full bg-[#0B1F45] flex items-center justify-center border border-[#C6A46A]/70 shadow-sm group-hover:scale-105 transition-transform">
+                    <svg class="w-7 h-7" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 4L33.8 8.2L38 10L33.8 11.8L32 16L30.2 11.8L26 10L30.2 8.2L32 4Z" fill="#C6A46A"/>
+                        <path d="M25 22V19C25 15.134 28.134 12 32 12C35.866 12 39 15.134 39 19V22" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"/>
+                        <path d="M20 22H44L46 36L32 31L18 36L20 22Z" fill="#FFFFFF" fill-opacity="0.94"/>
+                        <path d="M16 32C22 30 28 32 32 35C36 32 42 30 48 32V46C42 44 36 46 32 49C28 46 22 44 16 46V32Z" fill="#07152F" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M32 35V49" stroke="#C6A46A" stroke-width="1.8"/>
+                        <path d="M12 36C12 48.5 21 57 32 57C43 57 52 48.5 52 36C49.5 45.5 41.5 52.5 32 52.5C22.5 52.5 14.5 45.5 12 36Z" fill="#C6A46A"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="block font-serif text-lg sm:text-xl font-bold tracking-tight text-[#0B1F45] leading-none">
+                        AL FAHNA
+                    </span>
+                    <span class="block text-[10px] font-bold tracking-[0.28em] text-[#C6A46A] uppercase mt-1">
+                        S T O R E
+                    </span>
+                </div>
+            </a>
+
+            <!-- Navigasi Desktop -->
+            <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-[#0B1F45]/80">
+                <a href="#beranda" class="hover:text-[#0B1F45] transition-colors py-1">Beranda</a>
+                <a href="#katalog" class="hover:text-[#0B1F45] transition-colors py-1">Katalog</a>
+                <a href="#tentang" class="hover:text-[#0B1F45] transition-colors py-1">Tentang Kami</a>
+                <a href="#kontak" class="hover:text-[#0B1F45] transition-colors py-1">Kontak</a>
+            </nav>
+
+            <!-- Action Icons: Keranjang, WhatsApp, Hamburger -->
+            <div class="flex items-center gap-2.5 sm:gap-3">
+                <button onclick="openCartDrawer()" aria-label="Buka Keranjang Belanja" class="relative p-2.5 rounded-xl bg-[#F4F6F9] hover:bg-[#0B1F45] text-[#0B1F45] hover:text-white border border-[#0B1F45]/10 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                    <span id="navbar-cart-badge" class="absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1 rounded-full bg-[#C6A46A] text-[#07152F] text-[11px] font-extrabold flex items-center justify-center shadow">
+                        0
+                    </span>
+                </button>
+
+                <a href="https://wa.me/6288289533300" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 btn-navy px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold">
+                    <svg class="w-4 h-4 text-[#C6A46A]" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
+                    </svg>
+                    <span>WhatsApp</span>
+                </a>
+
+                <button id="mobile-menu-trigger" aria-label="Menu Navigasi" class="lg:hidden p-2.5 rounded-xl bg-[#F4F6F9] text-[#0B1F45] border border-[#0B1F45]/10 focus:outline-none">
+                    <svg id="hamburger-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                    <svg id="hamburger-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu-panel" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-5 shadow-lg">
+            <nav class="flex flex-col space-y-1.5 text-sm font-semibold text-[#0B1F45]">
+                <a href="#beranda" class="mobile-link px-3.5 py-2.5 rounded-xl hover:bg-[#F4F6F9]">Beranda</a>
+                <a href="#katalog" class="mobile-link px-3.5 py-2.5 rounded-xl hover:bg-[#F4F6F9]">Katalog</a>
+                <a href="#tentang" class="mobile-link px-3.5 py-2.5 rounded-xl hover:bg-[#F4F6F9]">Tentang Kami</a>
+                <a href="#kontak" class="mobile-link px-3.5 py-2.5 rounded-xl hover:bg-[#F4F6F9]">Kontak</a>
+                <div class="pt-2">
+                    <a href="https://wa.me/6288289533300" target="_blank" rel="noopener noreferrer" class="block w-full btn-navy py-3 rounded-xl text-center font-semibold">
+                        Chat WhatsApp Toko
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== 2. HERO SECTION ==================== -->
+    <section id="beranda" class="pt-28 pb-16 md:pt-36 md:pb-24 relative overflow-hidden">
+        <div class="absolute top-12 left-1/2 -translate-x-1/2 w-[780px] h-[780px] rounded-full border border-[#0B1F45]/[0.05] pointer-events-none"></div>
+        <div class="absolute top-28 left-1/2 -translate-x-1/2 w-[560px] h-[560px] rounded-full border border-[#C6A46A]/15 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Kolom Kiri -->
+                <div class="lg:col-span-7 text-center lg:text-left reveal active">
+                    <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-[#0B1F45] text-white text-xs font-bold tracking-[0.16em] uppercase shadow-sm border border-[#C6A46A]/45 mb-6">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#C6A46A]"></span>
+                        <span>SOLUSI KEBUTUHAN KANG SANTRI</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#C6A46A]"></span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-[52px] font-extrabold text-[#0B1F45] tracking-tight leading-[1.16] mb-6">
+                        Semua Kebutuhan Santri, <span class="relative inline-block text-[#07152F]">
+                            Ada di Sini.
+                            <span class="block h-1 w-full bg-[#C6A46A] rounded-full mt-1"></span>
+                        </span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-8">
+                        Temukan berbagai kebutuhan kang santri mulai dari kitab, pakaian, perlengkapan muslim, minyak wangi, alat tulis, dan kebutuhan lainnya di Al Fahna Store.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#katalog" class="w-full sm:w-auto btn-navy px-8 py-4 rounded-full font-semibold text-sm sm:text-base flex items-center justify-center gap-2.5">
+                            <span>Jelajahi Katalog</span>
+                            <svg class="w-4 h-4 text-[#C6A46A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </a>
+
+                        <button onclick="openCartDrawer()" class="w-full sm:w-auto btn-gold-outline px-8 py-4 rounded-full font-semibold text-sm sm:text-base flex items-center justify-center gap-2.5">
+                            <svg class="w-5 h-5 text-[#0B1F45]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                            </svg>
+                            <span>Belanja Sekarang</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Visual Kubah Islami & Ikon Perlengkapan Santri -->
+                <div class="lg:col-span-5 flex justify-center reveal active">
+                    <div class="islamic-arch-card bg-white p-7 sm:p-9 w-full max-w-md text-center">
+                        <div class="flex justify-center mb-3">
+                            <svg class="w-5 h-5 text-[#C6A46A]" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 1L14.5 9.5L23 12L14.5 14.5L12 23L9.5 14.5L1 12L9.5 9.5L12 1Z"/>
+                            </svg>
+                        </div>
+
+                        <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-[#0B1F45] flex items-center justify-center border-2 border-[#C6A46A] shadow-lg">
+                            <svg class="w-14 h-14" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M32 4L33.8 8.2L38 10L33.8 11.8L32 16L30.2 11.8L26 10L30.2 8.2L32 4Z" fill="#C6A46A"/>
+                                <path d="M25 22V19C25 15.134 28.134 12 32 12C35.866 12 39 15.134 39 19V22" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"/>
+                                <path d="M20 22H44L46 36L32 31L18 36L20 22Z" fill="#FFFFFF" fill-opacity="0.95"/>
+                                <path d="M16 32C22 30 28 32 32 35C36 32 42 30 48 32V46C42 44 36 46 32 49C28 46 22 44 16 46V32Z" fill="#07152F" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/>
+                                <path d="M32 35V49" stroke="#C6A46A" stroke-width="2"/>
+                                <path d="M12 36C12 48.5 21 57 32 57C43 57 52 48.5 52 36C49.5 45.5 41.5 52.5 32 52.5C22.5 52.5 14.5 45.5 12 36Z" fill="#C6A46A"/>
+                            </svg>
+                        </div>
+
+                        <h2 class="font-serif text-3xl font-bold text-[#0B1F45] tracking-tight">AL FAHNA</h2>
+                        <div class="flex items-center justify-center gap-3 my-1">
+                            <span class="h-[1px] w-8 bg-[#C6A46A]"></span>
+                            <span class="text-xs font-bold tracking-[0.34em] text-[#0B1F45]">STORE</span>
+                            <span class="h-[1px] w-8 bg-[#C6A46A]"></span>
+                        </div>
+
+                        <div class="grid grid-cols-5 gap-2 my-6 pt-4 border-t border-slate-100">
+                            <div class="flex flex-col items-center">
+                                <div class="w-10 h-10 rounded-full bg-[#0B1F45] text-[#C6A46A] flex items-center justify-center mb-1.5">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                                </div>
+                                <span class="text-[9px] font-bold text-[#0B1F45]">KITAB</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-10 h-10 rounded-full bg-[#0B1F45] text-[#C6A46A] flex items-center justify-center mb-1.5">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3l3 2 3-2 4 3-2 4h-2v11H9V10H7L5 6l4-3z"/></svg>
+                                </div>
+                                <span class="text-[9px] font-bold text-[#0B1F45]">PAKAIAN</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-10 h-10 rounded-full bg-[#0B1F45] text-[#C6A46A] flex items-center justify-center mb-1.5">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3h4v3h-4V3zm-2 5h8a2 2 0 012 2v8a2 2 0 01-2 2H8a2 2 0 01-2-2v-8a2 2 0 012-2z"/></svg>
+                                </div>
+                                <span class="text-[9px] font-bold text-[#0B1F45]">PARFUM</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-10 h-10 rounded-full bg-[#0B1F45] text-[#C6A46A] flex items-center justify-center mb-1.5">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 15c0-4.5 3.6-8 8-8s8 3.5 8 8v3H4v-3z"/></svg>
+                                </div>
+                                <span class="text-[9px] font-bold text-[#0B1F45]">MUSLIM</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-10 h-10 rounded-full bg-[#0B1F45] text-[#C6A46A] flex items-center justify-center mb-1.5">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                                </div>
+                                <span class="text-[9px] font-bold text-[#0B1F45]">ATK</span>
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl bg-[#07152F] text-white p-4 border border-[#C6A46A]/45">
+                            <p class="text-[11px] uppercase tracking-widest text-[#C6A46A] font-semibold">Jam Online</p>
+                            <p class="text-sm font-bold mt-0.5">Dzuhur – 21.00 WIB</p>
+                            <p class="text-[11px] text-slate-300 mt-1">AN Zein Fuad M</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 3. KATEGORI PRODUK (OTOMATIS DARI DATA KATALOG) ==================== -->
+    <section id="kategori-section" class="py-14 bg-white border-t border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#C6A46A]">Kategori Katalog</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-[#0B1F45] mt-1">Jelajahi Berdasarkan Kategori</h2>
+                </div>
+                <button onclick="resetAllFilters()" class="text-xs font-bold text-[#0B1F45] hover:text-[#C6A46A] transition-colors self-start sm:self-auto">
+                    Tampilkan Semua Kategori &rarr;
+                </button>
+            </div>
+
+            <div id="category-cards-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <!-- Dirender otomatis dari script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 4. KATALOG PRODUK UTAMA ==================== -->
+    <section id="katalog" class="py-20 bg-[#F4F6F9] border-y border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Header Katalog -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 reveal">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#C6A46A]">Katalog Resmi Al Fahna Store</span>
+                    <h2 class="text-2xl sm:text-4xl font-bold text-[#0B1F45] mt-1.5">Belanja Kebutuhan Santri</h2>
+                    <p class="text-sm sm:text-base text-slate-600 mt-2">
+                        Pilih produk langsung dari katalog resmi kami dengan harga promo dan deskripsi lengkap.
+                    </p>
+                </div>
+
+                <!-- Tombol Kelola Katalog -->
+                <div class="flex flex-wrap items-center gap-2.5">
+                    <button onclick="openCatalogSyncModal()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0B1F45] hover:bg-[#07152F] text-white border border-[#C6A46A]/40 text-xs sm:text-sm font-semibold shadow-sm transition-colors">
+                        <svg class="w-4 h-4 text-[#C6A46A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                        <span>Tambah / Kelola Produk</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bar Search, Filter Kategori, & Sorting -->
+            <div id="catalog-toolbar" class="mb-8 bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/90 shadow-sm space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-3.5">
+                    <div class="md:col-span-5 relative">
+                        <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                        <input type="text" id="catalog-search-input" placeholder="Cari nama produk sesuai katalog..." class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#F4F6F9] border border-transparent focus:border-[#0B1F45] focus:bg-white text-sm outline-none transition-all">
+                    </div>
+
+                    <div class="md:col-span-3">
+                        <select id="catalog-category-select" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F4F6F9] border border-transparent focus:border-[#0B1F45] focus:bg-white text-sm font-medium text-[#0B1F45] outline-none">
+                            <option value="Semua">Semua Kategori</option>
+                        </select>
+                    </div>
+
+                    <div class="md:col-span-3">
+                        <select id="catalog-sort-select" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F4F6F9] border border-transparent focus:border-[#0B1F45] focus:bg-white text-sm font-medium text-[#0B1F45] outline-none">
+                            <option value="default">Urutkan: Default Katalog</option>
+                            <option value="price-asc">Harga Termurah</option>
+                            <option value="price-desc">Harga Tertinggi</option>
+                            <option value="name-asc">Nama Produk (A – Z)</option>
+                        </select>
+                    </div>
+
+                    <div class="md:col-span-1">
+                        <button onclick="resetAllFilters()" title="Reset Filter" class="w-full h-full py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-[#0B1F45] text-xs font-bold transition-colors">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid Produk -->
+            <div id="catalog-grid-wrapper" class="reveal">
+                <!-- Dirender oleh script.js -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== 5. SECTION KEUNGGULAN ==================== -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+                <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#C6A46A]">Keunggulan Toko</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-[#0B1F45] mt-2">Kenapa Belanja di Al Fahna Store?</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 reveal">
+                <div class="ecom-card p-6 rounded-2xl text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-[#0B1F45] text-[#C6A46A] flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-[#0B1F45] text-sm sm:text-base mb-1.5">Berbagai Kebutuhan Santri</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">Lengkap dari kitab, herbal HNI, perlengkapan muslim, parfum, hingga ATK.</p>
+                </div>
+
+                <div class="ecom-card p-6 rounded-2xl text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-[#0B1F45] text-[#C6A46A] flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-[#0B1F45] text-sm sm:text-base mb-1.5">Produk Pilihan</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">Produk pilihan yang sesuai dengan kebutuhan keseharian di pesantren.</p>
+                </div>
+
+                <div class="ecom-card p-6 rounded-2xl text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-[#0B1F45] text-[#C6A46A] flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-[#0B1F45] text-sm sm:text-base mb-1.5">Belanja Lebih Praktis</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">Pilih beberapa produk dalam satu keranjang tanpa perlu catat manual.</p>
+                </div>
+
+                <div class="ecom-card p-6 rounded-2xl text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-[#0B1F45] text-[#C6A46A] flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-[#0B1F45] text-sm sm:text-base mb-1.5">Pemesanan Mudah</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">Checkout langsung terhubung ke WhatsApp resmi Al Fahna Store.</p>
+                </div>
+
+                <div class="ecom-card p-6 rounded-2xl text-center sm:col-span-2 lg:col-span-1">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-[#0B1F45] text-[#C6A46A] flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-[#0B1F45] text-sm sm:text-base mb-1.5">Pelayanan Ramah</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">Melayani santri dan wali santri dengan ramah serta amanah.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 6. ABOUT US & INFORMASI JAM ONLINE ==================== -->
+    <section id="tentang" class="py-20 bg-[#F4F6F9] border-t border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <div class="lg:col-span-7 reveal">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#C6A46A]">Tentang Kami</span>
+                    <h2 class="text-2xl sm:text-4xl font-bold text-[#0B1F45] mt-2 mb-5">
+                        Al Fahna Store — Solusi Kebutuhan Kang Santri
+                    </h2>
+                    <div class="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm">
+                        <p class="text-base sm:text-lg text-slate-700 leading-relaxed">
+                            "Al Fahna Store hadir untuk membantu memenuhi kebutuhan kang santri dengan menyediakan berbagai perlengkapan muslim, kitab, pakaian, minyak wangi, alat tulis, dan kebutuhan lainnya. Kami berusaha memberikan pengalaman belanja yang mudah, praktis, dan pelayanan yang ramah."
+                        </p>
+                        <div class="mt-6 pt-5 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2.5 h-2.5 rounded-full bg-[#C6A46A]"></span>
+                                <span class="text-sm font-bold text-[#0B1F45]">AN Zein Fuad M</span>
+                            </div>
+                            <a href="https://wa.me/6288289533300" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm font-semibold text-[#0B1F45] hover:text-[#C6A46A] transition-colors">
+                                WhatsApp: +62 882-8953-3300 &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="kontak" class="lg:col-span-5 reveal">
+                    <div class="islamic-pattern-navy rounded-3xl p-8 text-white shadow-xl border border-[#C6A46A]/55 relative overflow-hidden">
+                        <div class="flex items-center gap-4 pb-6 border-b border-white/15">
+                            <div class="w-14 h-14 rounded-2xl bg-[#0B1F45] border border-[#C6A46A]/70 text-[#C6A46A] flex items-center justify-center shrink-0">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#C6A46A]">JAM ONLINE</span>
+                                <h3 class="text-2xl font-extrabold text-white mt-0.5">Dzuhur – 21.00 WIB</h3>
+                            </div>
+                        </div>
+
+                        <div class="my-6 p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <p class="text-sm text-slate-200 leading-relaxed">
+                                "Mohon maaf jika kami lambat merespons ketika sedang ada aktivitas pesantren."
+                            </p>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="https://wa.me/6288289533300" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-4 rounded-xl bg-[#C6A46A] hover:bg-[#d3b37a] text-[#07152F] font-bold text-sm text-center transition-colors">
+                                Hubungi WhatsApp
+                            </a>
+                            <button onclick="openCartDrawer()" class="flex-1 py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm text-center border border-white/15 transition-colors">
+                                Lihat Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 7. FOOTER ==================== -->
+    <footer class="bg-[#07152F] text-slate-300 pt-14 pb-8 border-t border-[#C6A46A]/35">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-white/10">
+                
+                <div class="md:col-span-5">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-[#0B1F45] border border-[#C6A46A] flex items-center justify-center text-[#C6A46A] font-serif font-bold">
+                            AF
+                        </div>
+                        <div>
+                            <span class="block font-serif text-lg font-bold text-white leading-none">AL FAHNA STORE</span>
+                            <span class="block text-[10px] font-bold tracking-[0.2em] text-[#C6A46A] uppercase mt-1">SOLUSI KEBUTUHAN KANG SANTRI</span>
+                        </div>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm mt-3">
+                        Menyediakan perlengkapan muslim, kitab, pakaian santri, minyak wangi, dan alat tulis secara praktis dan terpercaya.
+                    </p>
+                    <div class="mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-[#C6A46A]/30 text-xs font-semibold text-white">
+                        <span class="text-[#C6A46A]">✦</span>
+                        <span>AN Zein Fuad M</span>
+                    </div>
+                </div>
+
+                <div class="md:col-span-3">
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-[#C6A46A] mb-4">Navigasi</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#beranda" class="hover:text-white transition-colors">Beranda</a></li>
+                        <li><a href="#katalog" class="hover:text-white transition-colors">Katalog Produk</a></li>
+                        <li><a href="#tentang" class="hover:text-white transition-colors">Tentang Kami</a></li>
+                        <li><a href="#kontak" class="hover:text-white transition-colors">Kontak</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4">
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-[#C6A46A] mb-4">Kontak & Layanan</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li>
+                            <span class="text-[#C6A46A]">WhatsApp:</span>
+                            <a href="https://wa.me/6288289533300" target="_blank" rel="noopener noreferrer" class="text-white hover:underline font-medium">+62 882-8953-3300</a>
+                        </li>
+                        <li>
+                            <span class="text-[#C6A46A]">Jam Online:</span>
+                            <span>Dzuhur – 21.00 WIB</span>
+                        </li>
+                        <li class="pt-2">
+                            <button onclick="openCodeFilesModal()" class="text-xs text-[#C6A46A] hover:underline flex items-center gap-1.5">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                                <span>Salin Kode File Terpisah (style.css & script.js)</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3">
+                <p>&copy; <span id="copyright-year"></span> AL FAHNA STORE. All rights reserved.</p>
+                <p>AN Zein Fuad M</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== FLOATING WHATSAPP & BACK TO TOP ==================== -->
+    <div class="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-2.5">
+        <button id="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Kembali ke atas" class="hidden w-10 h-10 rounded-full bg-[#0B1F45] text-white border border-[#C6A46A]/60 shadow-lg items-center justify-center hover:bg-[#07152F] transition-all">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+            </svg>
+        </button>
+
+        <a href="https://wa.me/6288289533300" target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp Al Fahna Store" class="flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-3 rounded-full shadow-xl transition-transform hover:scale-105">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
+            </svg>
+            <span class="hidden sm:inline text-xs font-bold tracking-wide">Chat WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- Toast Stack -->
+    <div id="toast-stack"></div>
+
+    <!-- ==================== MODAL DETAIL PRODUK LENGKAP ==================== -->
+    <div id="product-detail-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-[#07152F]/75 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl border border-slate-200 max-h-[90vh] flex flex-col">
+            <div class="flex items-center justify-between px-6 py-4 bg-[#0B1F45] text-white border-b border-[#C6A46A]/45">
+                <span id="detail-modal-category" class="text-xs font-bold uppercase tracking-wider text-[#C6A46A]">Kategori</span>
+                <button onclick="closeProductDetailModal()" class="p-1.5 rounded-full hover:bg-white/10 text-slate-300 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div id="detail-modal-body" class="p-6 overflow-y-auto space-y-4">
+                <!-- Dirender dinamis -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SHOPPING CART DRAWER & WHATSAPP CHECKOUT ==================== -->
+    <div id="cart-drawer-backdrop" class="fixed inset-0 z-50 hidden bg-[#07152F]/65 backdrop-blur-sm justify-end">
+        <div class="bg-white w-full max-w-lg h-full flex flex-col shadow-2xl overflow-hidden">
+            
+            <div class="px-6 py-4 bg-[#0B1F45] text-white flex items-center justify-between border-b border-[#C6A46A]/45">
+                <div class="flex items-center gap-2.5">
+                    <svg class="w-5 h-5 text-[#C6A46A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                    </svg>
+                    <h3 class="font-bold text-base">Keranjang & Checkout WhatsApp</h3>
+                </div>
+                <button onclick="closeCartDrawer()" class="p-1.5 rounded-lg hover:bg-white/10 text-slate-300 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto p-6 space-y-6">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold uppercase tracking-wider text-[#0B1F45]">Daftar Produk Dipilih</span>
+                        <button id="cart-clear-action" onclick="clearCartItems()" class="hidden text-xs text-rose-600 hover:underline font-semibold">Kosongkan</button>
+                    </div>
+                    <div id="cart-items-container" class="space-y-3">
+                        <!-- Dirender oleh script.js -->
+                    </div>
+                </div>
+
+                <div id="cart-totals-card" class="hidden p-4 rounded-2xl bg-[#F4F6F9] border border-[#0B1F45]/10">
+                    <div class="flex items-center justify-between text-xs sm:text-sm">
+                        <span class="font-semibold text-slate-600">Total Jumlah Barang:</span>
+                        <span id="cart-summary-qty" class="font-bold text-[#0B1F45]">0 item</span>
+                    </div>
+                    <div class="flex items-center justify-between text-base mt-2 pt-2 border-t border-slate-200">
+                        <span class="font-bold text-[#0B1F45]">TOTAL PESANAN:</span>
+                        <span id="cart-summary-total" class="text-lg font-extrabold text-[#0B1F45]">Rp 0</span>
+                    </div>
+                </div>
+
+                <form id="checkout-whatsapp-form" class="hidden space-y-4 pt-2 border-t border-slate-200" novalidate>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-[#0B1F45]">Form Data Pemesan</h4>
+
+                    <div>
+                        <label for="checkout-name" class="block text-xs font-semibold text-slate-700 mb-1">Nama Pelanggan *</label>
+                        <input type="text" id="checkout-name" required placeholder="Nama lengkap pemesan" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:border-[#0B1F45] outline-none">
+                    </div>
+
+                    <div>
+                        <label for="checkout-wa" class="block text-xs font-semibold text-slate-700 mb-1">Nomor WhatsApp *</label>
+                        <input type="tel" id="checkout-wa" required placeholder="Contoh: 081234567890" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:border-[#0B1F45] outline-none">
+                    </div>
+
+                    <div>
+                        <label for="checkout-address" class="block text-xs font-semibold text-slate-700 mb-1">Alamat Pengiriman *</label>
+                        <textarea id="checkout-address" rows="2" required placeholder="Alamat lengkap pengiriman" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:border-[#0B1F45] outline-none"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="checkout-notes" class="block text-xs font-semibold text-slate-700 mb-1">Catatan Tambahan</label>
+                        <input type="text" id="checkout-notes" placeholder="Catatan tambahan untuk penjual (opsional)" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:border-[#0B1F45] outline-none">
+                    </div>
+
+                    <p id="checkout-validation-alert" class="hidden text-xs font-semibold text-rose-600 bg-rose-50 p-3 rounded-xl border border-rose-200"></p>
+
+                    <button type="submit" class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
+                        </svg>
+                        <span>Checkout via WhatsApp</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL SINKRONISASI / TAMBAH DATA PRODUK ==================== -->
+    <div id="catalog-sync-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-[#07152F]/75 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-7 shadow-2xl border border-slate-200 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-[#C6A46A]">Pengelola Katalog Resmi</span>
+                    <h3 class="text-lg font-bold text-[#0B1F45]">Tambah / Kelola Produk Katalog</h3>
+                </div>
+                <button onclick="closeCatalogSyncModal()" class="p-2 rounded-full hover:bg-slate-100 text-slate-500">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <form id="sync-product-form" class="mt-4 space-y-3.5">
+                <div>
+                    <label class="block text-xs font-bold text-[#0B1F45] mb-1">Nama Produk *</label>
+                    <input type="text" id="sync-name" required placeholder="Nama produk sesuai katalog" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:border-[#0B1F45] outline-none">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-[#0B1F45] mb-1">Kategori Produk *</label>
+                        <input type="text" id="sync-category" required placeholder="Contoh: Kitab Assafany" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:border-[#0B1F45] outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-[#0B1F45] mb-1">Harga Jual (Rp) *</label>
+                        <input type="number" id="sync-price" required min="0" value="0" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:border-[#0B1F45] outline-none">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-[#0B1F45] mb-1">Harga Coret / Normal (Opsional)</label>
+                        <input type="number" id="sync-original-price" min="0" placeholder="Contoh: 185000" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:border-[#0B1F45] outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-[#0B1F45] mb-1">Variasi Produk (Opsional)</label>
+                        <input type="text" id="sync-variants" placeholder="Pisahkan dengan koma" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:border-[#0B1F45] outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-[#0B1F45] mb-1">Foto Produk (URL Gambar / Path File Assets)</label>
+                    <input type="text" id="sync-image" placeholder="https://... atau assets/products/nama.jpg" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:border-[#0B1F45] outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-[#0B1F45] mb-1">Deskripsi Menarik Produk *</label>
+                    <textarea id="sync-desc" rows="2" required placeholder="Tulis deskripsi lengkap dan menarik produk" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:border-[#0B1F45] outline-none"></textarea>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between gap-2 pt-2">
+                    <button type="button" onclick="restoreDefaultWhatsAppCatalog()" class="text-xs text-[#0B1F45] hover:underline font-semibold">
+                        Pulihkan Katalog Bawaan WA
+                    </button>
+                    <button type="submit" class="btn-navy px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold">
+                        Simpan Produk
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL SALIN FILE TERPISAH (style.css & script.js) ==================== -->
+    <div id="code-files-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-[#07152F]/75 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-slate-200">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+                <div>
+                    <h3 class="text-lg font-bold text-[#0B1F45]">Kode File Terpisah (al-fahna-store/)</h3>
+                    <p class="text-xs text-slate-500">Salin kode CSS atau JavaScript berikut jika ingin memisahkan file ke style.css dan script.js.</p>
+                </div>
+                <button onclick="closeCodeFilesModal()" class="p-2 rounded-full hover:bg-slate-100 text-slate-500">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <div class="flex gap-2 mt-4">
+                <button onclick="switchCodeTab('css')" id="code-tab-css" class="px-4 py-1.5 rounded-lg text-xs font-bold bg-[#0B1F45] text-white">style.css</button>
+                <button onclick="switchCodeTab('js')" id="code-tab-js" class="px-4 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700">script.js</button>
+            </div>
+
+            <div class="mt-3 relative">
+                <textarea id="code-files-output" readonly rows="11" class="w-full p-4 rounded-2xl bg-[#07152F] text-slate-100 font-mono text-xs leading-relaxed focus:outline-none"></textarea>
+                <button onclick="copyCodeFileContent()" id="copy-code-file-btn" class="absolute top-3 right-3 px-3.5 py-1.5 rounded-lg bg-[#C6A46A] text-[#07152F] font-bold text-xs hover:opacity-90">
+                    Salin Kode
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== VANILLA JAVASCRIPT (Dapat disalin menjadi file script.js) ==================== -->
+    <script id="store-javascript">
+        /**
+         * KONFIGURASI TOKO AL FAHNA STORE
+         */
+        const WHATSAPP_STORE = "6288289533300";
+        const CATALOG_STORAGE_KEY = "alfahna_catalog_v3";
+        const CART_STORAGE_KEY = "alfahna_cart_v3";
+
+        /**
+         * GENERATOR VISUAL SVG PRODUK BERKUALITAS TINGGI (SESUAI TIAP PRODUK KATALOG)
+         */
+        function buildProductIllustration(type, title, subtitle, bgAccent) {
+            let iconGraphic = "";
+            if (type === "kitab") {
+                iconGraphic = `
+                    <rect x="135" y="45" width="130" height="175" rx="8" fill="#07152F" stroke="#C6A46A" stroke-width="3"/>
+                    <rect x="148" y="45" width="117" height="175" rx="6" fill="${bgAccent}" stroke="#C6A46A" stroke-width="2"/>
+                    <rect x="160" y="65" width="92" height="58" rx="4" fill="#FFFFFF" fill-opacity="0.95"/>
+                    <path d="M172 82H240M180 96H232M188 108H224" stroke="#0B1F45" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M206 142L211 154L224 156L214 165L217 178L206 171L195 178L198 165L188 156L201 154L206 142Z" fill="#C6A46A"/>
+                    <rect x="135" y="45" width="14" height="175" rx="3" fill="#0B1F45"/>
+                `;
+            } else if (type === "kopi") {
+                iconGraphic = `
+                    <rect x="125" y="42" width="150" height="176" rx="14" fill="#991B1B" stroke="#C6A46A" stroke-width="3"/>
+                    <rect x="140" y="58" width="120" height="52" rx="8" fill="#FFFFFF"/>
+                    <text x="200" y="88" font-family="sans-serif" font-size="22" font-weight="800" fill="#991B1B" text-anchor="middle">SEVEL</text>
+                    <text x="200" y="102" font-family="sans-serif" font-size="8" font-weight="700" fill="#0B1F45" text-anchor="middle">KOPI HERBAL HNI</text>
+                    <ellipse cx="200" cy="162" rx="44" ry="22" fill="#3E1F0D" stroke="#C6A46A" stroke-width="2.5"/>
+                    <path d="M156 162C156 184 176 196 200 196C224 196 244 184 244 162" fill="#5C2E14"/>
+                    <path d="M185 130C185 120 193 118 193 110M205 132C205 122 213 120 213 112" stroke="#FDE68A" stroke-width="2.5" stroke-linecap="round"/>
+                `;
+            } else if (type === "pulpen") {
+                iconGraphic = `
+                    <rect x="115" y="45" width="82" height="175" rx="8" fill="#0B1F45" stroke="#C6A46A" stroke-width="2.5"/>
+                    <rect x="125" y="60" width="62" height="44" rx="4" fill="#FFFFFF"/>
+                    <text x="156" y="79" font-family="sans-serif" font-size="13" font-weight="800" fill="#DC2626" text-anchor="middle">KENKO</text>
+                    <text x="156" y="96" font-family="sans-serif" font-size="11" font-weight="700" fill="#0B1F45" text-anchor="middle">0.28 mm</text>
+                    <rect x="128" y="118" width="56" height="82" rx="4" fill="#1E3A8A"/>
+                    <text x="156" y="155" font-family="sans-serif" font-size="9" font-weight="700" fill="#C6A46A" text-anchor="middle">HI-TECH-H</text>
+                    <text x="156" y="172" font-family="sans-serif" font-size="8" fill="#FFFFFF" text-anchor="middle">GEL PEN</text>
+                    <!-- Pena Kanan -->
+                    <rect x="228" y="55" width="14" height="145" rx="4" fill="#E2E8F0" stroke="#0B1F45" stroke-width="2"/>
+                    <rect x="226" y="52" width="18" height="42" rx="4" fill="#1D4ED8"/>
+                    <polygon points="231,200 239,200 235,220" fill="#0B1F45"/>
+                    <rect x="260" y="62" width="14" height="138" rx="4" fill="#E2E8F0" stroke="#0B1F45" stroke-width="2"/>
+                    <rect x="258" y="58" width="18" height="42" rx="4" fill="#1D4ED8"/>
+                    <polygon points="263,200 271,200 267,220" fill="#0B1F45"/>
+                `;
+            }
+
+            const svg = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+                    <rect width="400" height="300" fill="#F8FAFC"/>
+                    <circle cx="200" cy="135" r="105" fill="#0B1F45" fill-opacity="0.04"/>
+                    ${iconGraphic}
+                    <rect x="35" y="236" width="330" height="46" rx="10" fill="#0B1F45"/>
+                    <text x="200" y="256" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">${title}</text>
+                    <text x="200" y="272" font-family="sans-serif" font-size="9.5" font-weight="600" fill="#C6A46A" text-anchor="middle">${subtitle}</text>
+                </svg>
+            `;
+            return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+        }
+
+        /**
+         * DATABASE PRODUK RESMI KATALOG WHATSAPP AL FAHNA STORE
+         * Nama produk, kategori, dan harga sesuai persis dengan katalog WhatsApp.
+         */
+        const DEFAULT_WHATSAPP_CATALOG = [
+            {
+                id: 101,
+                name: "Romzul 'uyun (Syarah Jauharul Maknun)",
+                category: "Kitab Assafany",
+                price: 160000,
+                originalPrice: 185000,
+                description: "Kitab syarah Nadzom Jauharul Maknun yang mengupas tuntas ilmu Balaghah (Ma'ani, Bayan, dan Badi') dengan penjelasan sistematis, jernih, dan sangat membantu kang santri memahami keindahan sastra Arab tingkat lanjut.",
+                image: buildProductIllustration("kitab", "ROMZUL 'UYUN", "Syarah Nadzom Jauharul Maknun", "#1E3A5F"),
+                variants: [],
+                available: true
+            },
+            {
+                id: 102,
+                name: "Fathul Alimil Hakim",
+                category: "Kitab Assafany",
+                price: 25000,
+                originalPrice: 28000,
+                description: "Kitab tukilan berbahasa Sunda yang membahas bab Nikah secara ringkas, jelas, dan mudah dipahami. Sangat praktis sebagai pegangan muthola'ah dan rujukan hukum munakahat bagi para santri.",
+                image: buildProductIllustration("kitab", "FATHUL ALIMIL HAKIM", "Kitab Tukilan Sunda Bab Nikah", "#1E40AF"),
+                variants: [],
+                available: true
+            },
+            {
+                id: 103,
+                name: "As Shorimul Battar",
+                category: "Kitab Assafany",
+                price: 38000,
+                originalPrice: 42000,
+                description: "Buku biografi inspiratif seorang ulama besar yang penuh keteladanan dalam menuntut ilmu, keteguhan prinsip, dan pengabdian umat. Bacaan bermutu untuk membakar semangat tholabul 'ilmi santri.",
+                image: buildProductIllustration("kitab", "AS SHORIMUL BATTAR", "Buku Biografi Ulama", "#0F294A"),
+                variants: [],
+                available: true
+            },
+            {
+                id: 104,
+                name: "Risalah Zainiyyah (رسالة زينية)",
+                category: "Kitab Assafany",
+                price: 22000,
+                originalPrice: 25000,
+                description: "Kitab risalah ringkas namun padat makna yang menjelaskan kaidah-kaidah penting keislaman dengan cetakan huruf yang tajam dan nyaman dibaca saat pengajian maupun belajar mandiri.",
+                image: buildProductIllustration("kitab", "RISALAH ZAINIYYAH", "Kitab Risalah Pilihan Santri", "#172554"),
+                variants: [],
+                available: true
+            },
+            {
+                id: 105,
+                name: "najmul muhtadi",
+                category: "Kitab Assafany",
+                price: 148000,
+                originalPrice: 160000,
+                description: "Kitab syarah Risalah Syamsiyyah yang membahas ilmu Mantiq (logika berpikir ilmiah) secara mendalam dan terstruktur, menjadi bekal wajib bagi santri dalam mengasah ketajaman nalar dan argumentasi.",
+                image: buildProductIllustration("kitab", "NAJMUL MUHTADI", "Kitab Syarh Risalah Syamsiyyah", "#1E3A8A"),
+                variants: [],
+                available: true
+            },
+            {
+                id: 106,
+                name: "al isti'thof (الاستعطاف لمن...)",
+                category: "Kitab Assafany",
+                price: 25000,
+                originalPrice: 27000,
+                description: "Kitab tukilan berbahasa Sunda berisi untaian doa, munajat, dan permohonan penuh adab kepada Allah SWT. Ringan dibawa dan sangat cocok diamalkan dalam keseharian santri di pesantren.",
+                image: buildProductIllustration("kitab", "AL ISTI'THOF", "Kitab Tukilan Bahasa Sunda", "#0B1F45"),
+                variants: [],
+                available: true
+            },
+            {
+                id: 201,
+                name: "Kopi sevel HNI",
+                category: "Produk Hni",
+                price: 7000,
+                originalPrice: 0,
+                description: "Nikmati cita rasa kopi herbal pilihan yang nikmat sekaligus menyegarkan! Dipadukan dengan bahan alami seperti daun kelor, jahe merah, jintan hitam, dan pasak bumi untuk menemani santri begadang muthola'ah kitab.",
+                image: buildProductIllustration("kopi", "KOPI SEVEL HNI", "Bukan Sekadar Ngopi • Herbal Alami", "#7F1D1D"),
+                variants: [],
+                available: true
+            },
+            {
+                id: 301,
+                name: "PULPEN KENKO 0.28",
+                category: "Alat Tulis Santri",
+                price: 5000,
+                originalPrice: 7000,
+                description: "Teman setia Kang Santri & Teteh Santri dalam memaknai kitab! Ujung pena jarum super halus 0.28 mm, tinta cepat kering, tidak mudah luntur, sangat pas untuk tulisan mungil dan catatan pinggir kitab gundul.",
+                image: buildProductIllustration("pulpen", "PULPEN KENKO 0.28", "Hi-Tech-H • Ujung Halus Makna Kitab", "#1E3A8A"),
+                variants: [],
+                available: true
+            }
+        ];
+
+        let PRODUCTS = [...DEFAULT_WHATSAPP_CATALOG];
+
+        // State Aplikasi
+        let cart = [];
+        let selectedCategory = "Semua";
+        let currentSearchTerm = "";
+        let currentSortOrder = "default";
+
+        // Inisialisasi Halaman
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("copyright-year").textContent = new Date().getFullYear();
+            restoreLocalData();
+            setupNavigationAndAnimations();
+            setupCatalogListeners();
+            renderStorefront();
+            renderShoppingCart();
+        });
+
+        function restoreLocalData() {
+            try {
+                const storedProducts = localStorage.getItem(CATALOG_STORAGE_KEY);
+                if (storedProducts) {
+                    const parsedProducts = JSON.parse(storedProducts);
+                    if (Array.isArray(parsedProducts) && parsedProducts.length > 0) {
+                        PRODUCTS = parsedProducts;
+                    }
+                }
+                const storedCart = localStorage.getItem(CART_STORAGE_KEY);
+                if (storedCart) {
+                    const parsedCart = JSON.parse(storedCart);
+                    if (Array.isArray(parsedCart)) {
+                        cart = parsedCart;
+                    }
+                }
+            } catch (error) {
+                console.error("Gagal membaca localStorage:", error);
+            }
+        }
+
+        function persistCatalog() {
+            localStorage.setItem(CATALOG_STORAGE_KEY, JSON.stringify(PRODUCTS));
+        }
+
+        function persistCart() {
+            localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+        }
+
+        function formatIDR(nominal) {
+            const val = Number(nominal);
+            if (!val || val <= 0) return null;
+            return "Rp " + val.toLocaleString("id-ID");
+        }
+
+        // ==================== RENDER KATEGORI OTOMATIS & KATALOG PRODUK ====================
+        function renderStorefront() {
+            renderAutoCategories();
+            renderProductCatalog();
+        }
+
+        function renderAutoCategories() {
+            const categorySection = document.getElementById("kategori-section");
+            const categoryGrid = document.getElementById("category-cards-grid");
+            const categorySelect = document.getElementById("catalog-category-select");
+
+            if (!PRODUCTS || PRODUCTS.length === 0) {
+                categorySection.classList.add("hidden");
+                return;
+            }
+
+            const categoryCounts = {};
+            PRODUCTS.forEach(item => {
+                if (item.category) {
+                    categoryCounts[item.category] = (categoryCounts[item.category] || 0) + 1;
+                }
+            });
+
+            const categories = Object.keys(categoryCounts);
+            if (categories.length === 0) {
+                categorySection.classList.add("hidden");
+                return;
+            }
+
+            categorySection.classList.remove("hidden");
+
+            categorySelect.innerHTML = `<option value="Semua">Semua Kategori (${PRODUCTS.length})</option>` +
+                categories.map(cat => `<option value="${escapeStr(cat)}" ${selectedCategory === cat ? "selected" : ""}>${escapeStr(cat)} (${categoryCounts[cat]})</option>`).join("");
+
+            categoryGrid.innerHTML = categories.map(cat => {
+                const isSelected = selectedCategory === cat;
+                return `
+                    <div class="ecom-card p-5 rounded-2xl flex flex-col justify-between ${isSelected ? 'ring-2 ring-[#C6A46A]' : ''}">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-[#0B1F45] text-[#C6A46A] flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-bold text-[#0B1F45] text-sm sm:text-base">${escapeStr(cat)}</h3>
+                            <p class="text-xs text-slate-500 mt-0.5">${categoryCounts[cat]} Produk</p>
+                        </div>
+                        <button onclick="filterByCategory('${escapeStr(cat)}')" class="mt-4 w-full py-2 px-3 rounded-xl bg-[#F4F6F9] hover:bg-[#0B1F45] text-[#0B1F45] hover:text-white text-xs font-bold transition-colors">
+                            Lihat Produk
+                        </button>
+                    </div>
+                `;
+            }).join("");
+        }
+
+        function filterByCategory(categoryName) {
+            selectedCategory = categoryName;
+            renderStorefront();
+            document.getElementById("katalog").scrollIntoView({ behavior: "smooth" });
+        }
+
+        function resetAllFilters() {
+            selectedCategory = "Semua";
+            currentSearchTerm = "";
+            currentSortOrder = "default";
+            const searchInput = document.getElementById("catalog-search-input");
+            const sortSelect = document.getElementById("catalog-sort-select");
+            if (searchInput) searchInput.value = "";
+            if (sortSelect) sortSelect.value = "default";
+            renderStorefront();
+        }
+
+        function renderProductCatalog() {
+            const toolbar = document.getElementById("catalog-toolbar");
+            const wrapper = document.getElementById("catalog-grid-wrapper");
+
+            toolbar.classList.remove("hidden");
+
+            let filtered = PRODUCTS.filter(product => {
+                const matchCat = selectedCategory === "Semua" || product.category === selectedCategory;
+                const matchName = product.name.toLowerCase().includes(currentSearchTerm.toLowerCase());
+                return matchCat && matchName;
+            });
+
+            if (currentSortOrder === "price-asc") {
+                filtered.sort((a, b) => (Number(a.price) || Infinity) - (Number(b.price) || Infinity));
+            } else if (currentSortOrder === "price-desc") {
+                filtered.sort((a, b) => (Number(b.price) || 0) - (Number(a.price) || 0));
+            } else if (currentSortOrder === "name-asc") {
+                filtered.sort((a, b) => a.name.localeCompare(b.name, "id"));
+            }
+
+            if (filtered.length === 0) {
+                wrapper.innerHTML = `
+                    <div class="bg-white rounded-2xl border border-slate-200 p-10 text-center">
+                        <p class="text-base font-bold text-[#0B1F45]">Produk tidak ditemukan</p>
+                        <p class="text-xs text-slate-500 mt-1">Tidak ada produk yang cocok dengan pencarian atau filter kategori saat ini.</p>
+                        <button onclick="resetAllFilters()" class="mt-4 btn-navy px-5 py-2 rounded-xl text-xs font-semibold">Reset Filter</button>
+                    </div>
+                `;
+                return;
+            }
+
+            const cardsMarkup = filtered.map(product => {
+                const formattedPrice = formatIDR(product.price);
+                const formattedOriginal = formatIDR(product.originalPrice);
+
+                const priceDisplay = formattedPrice
+                    ? `<div class="flex flex-wrap items-baseline gap-2">
+                           <span class="text-base sm:text-lg font-extrabold text-[#0B1F45]">${formattedPrice}</span>
+                           ${formattedOriginal ? `<span class="text-xs text-slate-400 line-through">${formattedOriginal}</span>` : ""}
+                       </div>`
+                    : `<span class="text-xs font-bold text-[#0B1F45] bg-[#F4F6F9] px-2.5 py-1 rounded-lg inline-block">Hubungi kami untuk informasi harga.</span>`;
+
+                const discountBadge = formattedOriginal && product.price < product.originalPrice
+                    ? `<span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-emerald-600 text-white text-[10px] font-bold shadow-sm">
+                           Hemat ${formatIDR(product.originalPrice - product.price)}
+                       </span>`
+                    : "";
+
+                const imgSrc = product.image && product.image.trim() !== ""
+                    ? escapeStr(product.image)
+                    : buildProductIllustration("kitab", escapeStr(product.name), escapeStr(product.category), "#0B1F45");
+
+                const variantSelector = Array.isArray(product.variants) && product.variants.length > 0
+                    ? `<div class="mt-2.5">
+                           <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1">Pilih Variasi</label>
+                           <select id="variant-select-${escapeStr(product.id)}" class="w-full px-2.5 py-1.5 rounded-lg bg-[#F4F6F9] border border-slate-200 text-xs font-semibold text-[#0B1F45] outline-none">
+                               ${product.variants.map(v => `<option value="${escapeStr(v)}">${escapeStr(v)}</option>`).join("")}
+                           </select>
+                       </div>`
+                    : "";
+
+                const descMarkup = product.description
+                    ? `<p class="text-xs text-slate-600 leading-relaxed line-clamp-3 mt-1.5">${escapeStr(product.description)}</p>
+                       <button onclick="openProductDetailModal('${escapeStr(product.id)}')" class="mt-1 text-[11px] font-bold text-[#0B1F45] hover:text-[#C6A46A] transition-colors inline-flex items-center gap-1">
+                           <span>Baca detail lengkap</span>
+                           <span>&rarr;</span>
+                       </button>`
+                    : "";
+
+                return `
+                    <article class="ecom-card rounded-2xl overflow-hidden flex flex-col justify-between">
+                        <div>
+                            <div onclick="openProductDetailModal('${escapeStr(product.id)}')" class="product-image-frame relative cursor-pointer">
+                                <img src="${imgSrc}" alt="${escapeStr(product.name)}" loading="lazy">
+                                <span class="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-[#07152F]/90 text-[#C6A46A] text-[10px] font-bold uppercase tracking-wider">
+                                    ${escapeStr(product.category)}
+                                </span>
+                                ${discountBadge}
+                            </div>
+                            <div class="p-3.5 sm:p-5">
+                                <h3 onclick="openProductDetailModal('${escapeStr(product.id)}')" class="text-xs sm:text-base font-bold text-[#0B1F45] leading-snug cursor-pointer hover:text-[#C6A46A] transition-colors">${escapeStr(product.name)}</h3>
+                                ${descMarkup}
+                                ${variantSelector}
+                            </div>
+                        </div>
+
+                        <div class="px-3.5 pb-3.5 sm:px-5 sm:pb-5 pt-3 border-t border-slate-100">
+                            <div class="mb-3">
+                                ${priceDisplay}
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                <button onclick="handleAddToCart('${escapeStr(product.id)}', false)" class="py-2 px-2.5 rounded-xl bg-[#F4F6F9] hover:bg-[#0B1F45] text-[#0B1F45] hover:text-white border border-[#0B1F45]/15 text-[11px] sm:text-xs font-bold transition-colors text-center">
+                                    + Keranjang
+                                </button>
+                                <button onclick="handleAddToCart('${escapeStr(product.id)}', true)" class="py-2 px-2.5 rounded-xl btn-navy text-[11px] sm:text-xs font-bold text-center">
+                                    Pesan Sekarang
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join("");
+
+            wrapper.innerHTML = `<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-6">${cardsMarkup}</div>`;
+        }
+
+        // ==================== MODAL DETAIL PRODUK LENGKAP ====================
+        function openProductDetailModal(productId) {
+            const product = PRODUCTS.find(p => String(p.id) === String(productId));
+            if (!product) return;
+
+            document.getElementById("detail-modal-category").textContent = product.category;
+            const formattedPrice = formatIDR(product.price);
+            const formattedOriginal = formatIDR(product.originalPrice);
+
+            document.getElementById("detail-modal-body").innerHTML = `
+                <div class="rounded-2xl bg-[#F8FAFC] border border-slate-200/80 p-4 flex items-center justify-center">
+                    <img src="${escapeStr(product.image)}" alt="${escapeStr(product.name)}" class="max-h-56 object-contain">
+                </div>
+                <div>
+                    <h3 class="text-xl font-extrabold text-[#0B1F45]">${escapeStr(product.name)}</h3>
+                    <div class="flex items-baseline gap-2.5 mt-2">
+                        <span class="text-2xl font-extrabold text-[#0B1F45]">${formattedPrice || 'Hubungi kami untuk informasi harga.'}</span>
+                        ${formattedOriginal ? `<span class="text-sm text-slate-400 line-through">${formattedOriginal}</span>` : ""}
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl bg-[#F4F6F9] border border-slate-200/70">
+                    <p class="text-xs font-bold uppercase tracking-wider text-[#0B1F45] mb-1.5">Deskripsi Produk</p>
+                    <p class="text-sm text-slate-700 leading-relaxed">${escapeStr(product.description)}</p>
+                </div>
+                <div class="grid grid-cols-2 gap-3 pt-2">
+                    <button onclick="handleAddToCart('${escapeStr(product.id)}', false); closeProductDetailModal();" class="py-3 px-4 rounded-xl bg-[#F4F6F9] hover:bg-[#0B1F45] text-[#0B1F45] hover:text-white border border-[#0B1F45]/20 text-xs sm:text-sm font-bold transition-colors">
+                        + Tambah ke Keranjang
+                    </button>
+                    <button onclick="handleAddToCart('${escapeStr(product.id)}', true); closeProductDetailModal();" class="py-3 px-4 rounded-xl btn-navy text-xs sm:text-sm font-bold">
+                        Pesan Sekarang
+                    </button>
+                </div>
+            `;
+
+            const modal = document.getElementById("product-detail-modal");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+        }
+
+        function closeProductDetailModal() {
+            const modal = document.getElementById("product-detail-modal");
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+        }
+
+        // ==================== KERANJANG BELANJA REALTIME ====================
+        function handleAddToCart(productId, openDrawerImmediately) {
+            const product = PRODUCTS.find(p => String(p.id) === String(productId));
+            if (!product) return;
+
+            let chosenVariant = "";
+            const variantEl = document.getElementById(`variant-select-${product.id}`);
+            if (variantEl) {
+                chosenVariant = variantEl.value;
+            }
+
+            const cartKey = chosenVariant ? `${product.id}__${chosenVariant}` : String(product.id);
+            const displayName = chosenVariant ? `${product.name} (${chosenVariant})` : product.name;
+
+            const existingItem = cart.find(item => item.cartKey === cartKey);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({
+                    cartKey,
+                    id: product.id,
+                    name: displayName,
+                    price: Number(product.price) || 0,
+                    qty: 1
+                });
+            }
+
+            persistCart();
+            renderShoppingCart();
+            triggerToast(`"${displayName}" ditambahkan ke keranjang`);
+
+            if (openDrawerImmediately) {
+                openCartDrawer();
+            }
+        }
+
+        function changeCartItemQty(cartKey, delta) {
+            const index = cart.findIndex(item => item.cartKey === cartKey);
+            if (index === -1) return;
+
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+
+            persistCart();
+            renderShoppingCart();
+        }
+
+        function deleteCartItem(cartKey) {
+            cart = cart.filter(item => item.cartKey !== cartKey);
+            persistCart();
+            renderShoppingCart();
+            triggerToast("Produk dihapus dari keranjang");
+        }
+
+        function clearCartItems() {
+            cart = [];
+            persistCart();
+            renderShoppingCart();
+        }
+
+        function renderShoppingCart() {
+            const badge = document.getElementById("navbar-cart-badge");
+            const container = document.getElementById("cart-items-container");
+            const totalsCard = document.getElementById("cart-totals-card");
+            const checkoutForm = document.getElementById("checkout-whatsapp-form");
+            const clearBtn = document.getElementById("cart-clear-action");
+
+            const totalQty = cart.reduce((acc, item) => acc + item.qty, 0);
+            const totalNominal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+            const hasUnpricedItems = cart.some(item => !item.price || item.price <= 0);
+
+            badge.textContent = totalQty;
+
+            if (cart.length === 0) {
+                totalsCard.classList.add("hidden");
+                checkoutForm.classList.add("hidden");
+                clearBtn.classList.add("hidden");
+                container.innerHTML = `
+                    <div class="p-8 rounded-2xl border border-dashed border-slate-300 text-center">
+                        <p class="text-sm font-bold text-[#0B1F45]">Keranjang Anda Masih Kosong</p>
+                        <p class="text-xs text-slate-500 mt-1">Pilih produk dari katalog untuk mulai memesan.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            totalsCard.classList.remove("hidden");
+            checkoutForm.classList.remove("hidden");
+            clearBtn.classList.remove("hidden");
+
+            document.getElementById("cart-summary-qty").textContent = `${totalQty} item`;
+            document.getElementById("cart-summary-total").textContent = hasUnpricedItems
+                ? `${formatIDR(totalNominal) || 'Rp 0'} (+ Konfirmasi Harga)`
+                : formatIDR(totalNominal);
+
+            container.innerHTML = cart.map(item => {
+                const unitPriceLabel = item.price > 0 ? formatIDR(item.price) : "Hubungi kami untuk informasi harga";
+                const subtotalLabel = item.price > 0 ? formatIDR(item.price * item.qty) : "Konfirmasi Admin";
+
+                return `
+                    <div class="p-3.5 rounded-2xl bg-[#F4F6F9] border border-slate-200/80 flex items-center justify-between gap-3">
+                        <div class="min-w-0 flex-1">
+                            <p class="text-xs sm:text-sm font-bold text-[#0B1F45] truncate">${escapeStr(item.name)}</p>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Harga: ${unitPriceLabel}</p>
+                            <p class="text-xs font-bold text-[#0B1F45] mt-1">Subtotal: ${subtotalLabel}</p>
+                        </div>
+                        <div class="flex items-center gap-1.5 shrink-0">
+                            <button type="button" onclick="changeCartItemQty('${escapeStr(item.cartKey)}', -1)" class="w-7 h-7 rounded-lg bg-white border border-slate-300 text-[#0B1F45] font-bold text-sm hover:bg-slate-100">-</button>
+                            <span class="w-6 text-center text-xs font-bold text-[#0B1F45]">${item.qty}</span>
+                            <button type="button" onclick="changeCartItemQty('${escapeStr(item.cartKey)}', 1)" class="w-7 h-7 rounded-lg bg-[#0B1F45] text-white font-bold text-sm hover:bg-[#07152F]">+</button>
+                            <button type="button" onclick="deleteCartItem('${escapeStr(item.cartKey)}')" aria-label="Hapus item" class="ml-1 p-1.5 text-rose-600 hover:bg-rose-50 rounded-lg">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join("");
+        }
+
+        // ==================== CHECKOUT WHATSAPP SESUAI FORMAT WAJIB ====================
+        function submitWhatsAppCheckout(event) {
+            event.preventDefault();
+            const alertBox = document.getElementById("checkout-validation-alert");
+            alertBox.classList.add("hidden");
+
+            const name = document.getElementById("checkout-name").value.trim();
+            const wa = document.getElementById("checkout-wa").value.trim();
+            const address = document.getElementById("checkout-address").value.trim();
+            const notes = document.getElementById("checkout-notes").value.trim() || "-";
+
+            if (cart.length === 0) {
+                alertBox.textContent = "Keranjang belanja masih kosong.";
+                alertBox.classList.remove("hidden");
+                return;
+            }
+
+            if (!name || !wa || !address) {
+                alertBox.textContent = "Mohon lengkapi Nama Pelanggan, Nomor WhatsApp, dan Alamat Pengiriman.";
+                alertBox.classList.remove("hidden");
+                return;
+            }
+
+            let stepNumber = 1;
+            let detailBlocks = [];
+            let grandTotal = 0;
+            let containsInquiryItem = false;
+
+            cart.forEach(item => {
+                const hasPrice = item.price > 0;
+                const subtotal = hasPrice ? item.price * item.qty : 0;
+                if (hasPrice) {
+                    grandTotal += subtotal;
+                } else {
+                    containsInquiryItem = true;
+                }
+
+                const priceText = hasPrice ? formatIDR(item.price) : "Hubungi kami untuk informasi harga";
+                const subtotalText = hasPrice ? formatIDR(subtotal) : "Konfirmasi harga";
+
+                detailBlocks.push(`${stepNumber++}. ${item.name}`);
+                detailBlocks.push(`${stepNumber++}. Jumlah: ${item.qty}`);
+                detailBlocks.push(`${stepNumber++}. Harga: ${priceText}`);
+                detailBlocks.push(`${stepNumber++}. Subtotal: ${subtotalText}`);
+            });
+
+            const totalText = containsInquiryItem
+                ? `${formatIDR(grandTotal) || 'Rp 0'} (Belum termasuk item konfirmasi harga)`
+                : formatIDR(grandTotal);
+
+            const formattedMessage =
+`Halo Al Fahna Store, saya ingin melakukan pemesanan.
+
+DATA PEMESAN:
+Nama: ${name}
+WhatsApp: ${wa}
+
+DETAIL PESANAN:
+${detailBlocks.join("\n")}
+
+TOTAL PESANAN: ${totalText}
+
+Alamat:
+${address}
+
+Catatan:
+${notes}
+
+Mohon konfirmasi pesanan saya.
+Terima kasih.`;
+
+            const waCheckoutUrl = `https://wa.me/${WHATSAPP_STORE}?text=${encodeURIComponent(formattedMessage)}`;
+            window.open(waCheckoutUrl, "_blank", "noopener,noreferrer");
+        }
+
+        // ==================== EVENT LISTENERS & KELOLA KATALOG ====================
+        function setupCatalogListeners() {
+            const searchInput = document.getElementById("catalog-search-input");
+            const categorySelect = document.getElementById("catalog-category-select");
+            const sortSelect = document.getElementById("catalog-sort-select");
+
+            if (searchInput) {
+                searchInput.addEventListener("input", (e) => {
+                    currentSearchTerm = e.target.value;
+                    renderProductCatalog();
+                });
+            }
+
+            if (categorySelect) {
+                categorySelect.addEventListener("change", (e) => {
+                    selectedCategory = e.target.value;
+                    renderStorefront();
+                });
+            }
+
+            if (sortSelect) {
+                sortSelect.addEventListener("change", (e) => {
+                    currentSortOrder = e.target.value;
+                    renderProductCatalog();
+                });
+            }
+
+            document.getElementById("checkout-whatsapp-form").addEventListener("submit", submitWhatsAppCheckout);
+
+            document.getElementById("sync-product-form").addEventListener("submit", (e) => {
+                e.preventDefault();
+                const name = document.getElementById("sync-name").value.trim();
+                const category = document.getElementById("sync-category").value.trim();
+                const price = Number(document.getElementById("sync-price").value) || 0;
+                const originalPrice = Number(document.getElementById("sync-original-price").value) || 0;
+                const variantsRaw = document.getElementById("sync-variants").value.trim();
+                const imageInput = document.getElementById("sync-image").value.trim();
+                const description = document.getElementById("sync-desc").value.trim();
+
+                if (!name || !category) return;
+
+                const variants = variantsRaw
+                    ? variantsRaw.split(",").map(v => v.trim()).filter(Boolean)
+                    : [];
+
+                const finalImage = imageInput || buildProductIllustration("kitab", name.toUpperCase(), category, "#0B1F45");
+
+                PRODUCTS.push({
+                    id: Date.now(),
+                    name,
+                    category,
+                    price,
+                    originalPrice,
+                    description,
+                    image: finalImage,
+                    variants,
+                    available: true
+                });
+
+                persistCatalog();
+                e.target.reset();
+                closeCatalogSyncModal();
+                renderStorefront();
+                triggerToast(`Produk "${name}" berhasil ditambahkan`);
+            });
+        }
+
+        function restoreDefaultWhatsAppCatalog() {
+            PRODUCTS = [...DEFAULT_WHATSAPP_CATALOG];
+            selectedCategory = "Semua";
+            currentSearchTerm = "";
+            persistCatalog();
+            renderStorefront();
+            closeCatalogSyncModal();
+            triggerToast("Katalog resmi WhatsApp berhasil dipulihkan");
+        }
+
+        // ==================== UI DRAWER, MODAL, NAVBAR & TOAST ====================
+        function openCartDrawer() {
+            const backdrop = document.getElementById("cart-drawer-backdrop");
+            backdrop.classList.remove("hidden");
+            backdrop.classList.add("flex");
+        }
+
+        function closeCartDrawer() {
+            const backdrop = document.getElementById("cart-drawer-backdrop");
+            backdrop.classList.add("hidden");
+            backdrop.classList.remove("flex");
+        }
+
+        function openCatalogSyncModal() {
+            const modal = document.getElementById("catalog-sync-modal");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+        }
+
+        function closeCatalogSyncModal() {
+            const modal = document.getElementById("catalog-sync-modal");
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+        }
+
+        function openCodeFilesModal() {
+            const modal = document.getElementById("code-files-modal");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            switchCodeTab("css");
+        }
+
+        function closeCodeFilesModal() {
+            const modal = document.getElementById("code-files-modal");
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+        }
+
+        function switchCodeTab(tab) {
+            const output = document.getElementById("code-files-output");
+            const cssTab = document.getElementById("code-tab-css");
+            const jsTab = document.getElementById("code-tab-js");
+
+            if (tab === "css") {
+                cssTab.className = "px-4 py-1.5 rounded-lg text-xs font-bold bg-[#0B1F45] text-white";
+                jsTab.className = "px-4 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700";
+                output.value = document.getElementById("store-stylesheet").textContent.trim();
+            } else {
+                jsTab.className = "px-4 py-1.5 rounded-lg text-xs font-bold bg-[#0B1F45] text-white";
+                cssTab.className = "px-4 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700";
+                output.value = document.getElementById("store-javascript").textContent.trim();
+            }
+        }
+
+        function copyCodeFileContent() {
+            const output = document.getElementById("code-files-output");
+            output.select();
+            document.execCommand("copy");
+            const btn = document.getElementById("copy-code-file-btn");
+            btn.textContent = "Tersalin!";
+            setTimeout(() => { btn.textContent = "Salin Kode"; }, 2000);
+        }
+
+        function setupNavigationAndAnimations() {
+            const header = document.getElementById("site-header");
+            const scrollTopBtn = document.getElementById("scroll-top-btn");
+            const menuTrigger = document.getElementById("mobile-menu-trigger");
+            const menuPanel = document.getElementById("mobile-menu-panel");
+            const iconOpen = document.getElementById("hamburger-open");
+            const iconClose = document.getElementById("hamburger-close");
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 25) {
+                    header.classList.add("scrolled");
+                } else {
+                    header.classList.remove("scrolled");
+                }
+
+                if (window.scrollY > 360) {
+                    scrollTopBtn.classList.remove("hidden");
+                    scrollTopBtn.classList.add("flex");
+                } else {
+                    scrollTopBtn.classList.add("hidden");
+                    scrollTopBtn.classList.remove("flex");
+                }
+            });
+
+            menuTrigger.addEventListener("click", () => {
+                menuPanel.classList.toggle("hidden");
+                iconOpen.classList.toggle("hidden");
+                iconClose.classList.toggle("hidden");
+            });
+
+            document.querySelectorAll(".mobile-link").forEach(item => {
+                item.addEventListener("click", () => {
+                    menuPanel.classList.add("hidden");
+                    iconOpen.classList.remove("hidden");
+                    iconClose.classList.add("hidden");
+                });
+            });
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+        }
+
+        function triggerToast(message) {
+            const stack = document.getElementById("toast-stack");
+            const toast = document.createElement("div");
+            toast.className = "toast-bubble";
+            toast.innerHTML = `<span class="text-[#C6A46A] font-bold">✓</span><span>${escapeStr(message)}</span>`;
+            stack.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = "0";
+                toast.style.transition = "opacity 0.25s ease";
+                setTimeout(() => toast.remove(), 260);
+            }, 2600);
+        }
+
+        function escapeStr(value) {
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+    </script>
+</body>
+</html>
